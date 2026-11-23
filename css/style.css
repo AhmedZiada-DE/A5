@@ -1,0 +1,195 @@
+:root{
+    --navy: rgb(11, 14, 19);
+    --neo-green: rgb(139, 182, 0);
+    --nav-height: 4.5rem; /* 72px, matching your navbar */
+    --lgt-navy:rgb(22, 32, 46);
+}
+.navbar {
+    --bs-navbar-min-height: var(--nav-height);
+}
+
+.main-sec {
+    min-height: calc(100dvh - var(--nav-height));
+}
+.bg-navy {
+    --bs-navbar-bg: rgb(11, 14, 19);
+    background-color: rgb(11, 14, 19);
+}
+.bg-lgt-navy{
+    background-color: rgb(22, 32, 46);
+}
+.bg-neog{
+    background-color: var(--neo-green);
+}
+.c-neog{
+    color: var(--neo-green);
+}
+.c-navy{
+    color: var(--navy);
+}
+.main-sec{
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+        url("../images/hero-bg.jpg");
+    background-size: cover;
+}
+.border-text-neog{
+    border: solid .1rem var(--neo-green);
+    color: var(--neo-green);
+    background-color: transparent;
+}
+.border-neog{
+    border: solid  var(--neo-green);
+}
+.main-sec h1{
+    font-size: 4rem;
+}
+.main-sec img{
+    object-fit: cover;
+    --bs-ratio: 3/2;
+}
+.stat-card{
+    translate: -1.5rem 1.5rem;
+}
+.sec-two-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.sec-two-title::before,
+.sec-two-title::after {
+    content: "";
+    width: 5rem;
+    height: 2px;
+}
+
+.sec-two-title::before {
+    background: linear-gradient(to right, transparent, var(--neo-green));
+}
+
+.sec-two-title::after {
+    background: linear-gradient(to left, transparent, var(--neo-green));
+}
+.solu-cards{
+    height: 18rem;
+}
+.solu-cards .img-cont{
+    height:4rem;
+    width: 4rem;
+}
+.bg-dark-grey{
+    background-color: rgb(26, 26, 26);
+}
+
+.vert-text{
+    writing-mode: vertical-lr;
+}
+/* .char-card img{
+    filter: grayscale(1) contrast(1.1) brightness(.9);
+}
+.char-card:hover img{
+    background-position: bottom;
+    filter: grayscale(0) contrast(1.1) brightness(.9);
+    transition: filter 1s ease-out;
+} */
+
+.char-card {
+  position: relative;
+  display: inline-block; /* Ensures the card hugs the image tightly */
+  overflow: hidden;
+}
+
+.char-card img {
+  display: block;
+  width: 100%;
+}
+
+.char-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: grayscale(1) contrast(1.1) brightness(0.9);
+  -webkit-backdrop-filter: grayscale(1) contrast(1.1) brightness(0.9);
+  transition: height 1s ease;
+  pointer-events: none;
+}
+
+.char-card:hover::after {
+  height: 0%;
+}
+.info-img{
+    height: 4rem;
+    width: 4rem;
+}
+.info-soc-med{
+    height: 3rem;
+    width: 3rem;
+    background-color: black;
+}
+.contact-info-social-media{
+    background-image: linear-gradient(to right, var(--neo-green), rgb(37, 195, 97));
+}
+.form-control {
+  background-color: rgb(255 255 255 / .06);
+}
+select option{
+    background-color: var(--lgt-navy);
+}
+::placeholder{
+    font-size: medium;
+    color: rgb(171, 171, 171);
+}
+.logo-wall {
+  --gap: 1rem;
+  --tile: 6.5rem;
+  overflow: hidden;
+  /* the olive glow behind the rows */
+  background: radial-gradient(ellipse at center, rgb(160 180 0 / .5), transparent 65%);
+}
+
+.marquee {
+  overflow: hidden;                         /* hides the part of the track outside the screen */
+  /* fades the tiles in and out at both edges */
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee + .marquee { margin-top: var(--gap); }
+
+.marquee__track {
+  display: flex;
+  width: max-content;                       /* track is exactly as wide as both groups */
+  animation: marquee 40s linear infinite;
+}
+
+.marquee__group {
+  display: flex;
+  gap: var(--gap);
+  padding-right: var(--gap);                /* trailing gap, so both groups are identical in width */
+  
+}
+
+.marquee__group img {
+  width: var(--tile);
+  height: var(--tile);
+  flex-shrink: 0;                           /* tiles must never squash */
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.marquee--reverse .marquee__track {
+  animation-direction: reverse;             /* same keyframes, played backward */
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+a{
+    transition: color .2 ease;
+}
+a:hover, a:focus-visible, a:active{
+    color:var(--neo-green)
+}
